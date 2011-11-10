@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="HomeView">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+
+			[Bindable]
+			private var bundles:ArrayCollection;
+
+			
+			public function test():void {
+				bundlesservice.contentType = "application/json-rpc";
+				bundlesservice.resultType = JSON;
+				var jsonRequest:JSONRequest = new JSONRequest();
+				jsonRequest.id = 1;
+				jsonRequest.method = "getBundles";
+				jsonRequest.params = [];
+				bundlesservice.request = JSON.stringify(jsonRequest);
+				bundlesservice.send(); 
+			}
+			
+			protected function resultHandler(event:ResultEvent):void {
+				var jsonResult:Array = JSON.parse(event.result.toString()).result as Array;
+				bundles = new ArrayCollection(jsonResult);
+			}
+
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:HTTPService id="bundlesservice" 
+					   method="POST" 
+					   url="http://localhost:80/bundles" 
+					   result="resultHandler(event)"
+					   showBusyCursor="true"/>
+	</fx:Declarations>
+	<s:VGroup width="100%" height="100%">
+		<s:List dataProvider="{bundles}" width="100%" height="100%" labelField="name">
+			<s:itemRenderer>
+				<fx:Component>
+					<s:IconItemRenderer messageField="state"
+										fontWeight="normal" />
+				</fx:Component>
+			</s:itemRenderer>
+		</s:List>
+		<s:Button click="test()" />
+	</s:VGroup>
+</s:View>
