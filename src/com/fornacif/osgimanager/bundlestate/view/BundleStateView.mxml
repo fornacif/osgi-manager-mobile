@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title="BundleStateView">
+	<fx:Script>
+		<![CDATA[
+			import com.fornacif.osgimanager.application.service.BundleStateService;
+			import com.fornacif.osgimanager.bundlestate.pm.BundleStatePM;
+
+			[Inject]
+			[Bindable]
+			public var bundleStatePM:BundleStatePM;
+		]]>
+	</fx:Script>
+	<s:List dataProvider="{bundleStatePM.bundleStateModel.bundles}" 
+			width="100%" 
+			height="100%"
+			itemRenderer="com.fornacif.osgimanager.bundlestate.view.BundleItemRenderer2">
+	</s:List>
+</s:View>
