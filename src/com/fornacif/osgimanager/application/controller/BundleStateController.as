@@ -11,12 +11,12 @@ package com.fornacif.osgimanager.application.controller {
     import org.swizframework.utils.services.ServiceHelper;
 
     public class BundleStateController {
-
-        [Inject]
-        public var frameworkModel:BundleStateModel;
 		
 		[Inject]
-		public var frameworkService:BundleStateService;
+		public var bundleStateModel:BundleStateModel;
+		
+		[Inject]
+		public var bundleStateService:BundleStateService;
 		
 		[Inject]
 		public var serviceHelper:ServiceHelper;
@@ -26,18 +26,18 @@ package com.fornacif.osgimanager.application.controller {
 
         [EventHandler(event = "BundleStateEvent.LIST_BUNDLES_REQUEST")]
         public function listBundles():void {
-			serviceHelper.executeServiceCall(frameworkService.listBundles(), listBundlesResultHandler, listBundlesFaultHandler);
+			serviceHelper.executeServiceCall(bundleStateService.listBundles(), listBundlesResultHandler, listBundlesFaultHandler);
         }
 
-		protected function listBundlesResultHandler(data:Object):void {
+		private function listBundlesResultHandler(data:Object):void {
 			var result:Object = JSON.parse(data.result);
-			frameworkModel.bundles.removeAll();
+			bundleStateModel.bundles.removeAll();
 			for each (var bundle:Object in result.value) {
-				frameworkModel.bundles.addItem(bundle);
+				bundleStateModel.bundles.addItem(bundle);
 			}
 		}
 		
-		protected function listBundlesFaultHandler(info:Object):void {
+		private function listBundlesFaultHandler(info:Object):void {
 			trace(info);
 		}
     }

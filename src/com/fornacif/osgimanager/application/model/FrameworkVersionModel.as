@@ -3,7 +3,7 @@ package com.fornacif.osgimanager.application.model {
 	import mx.collections.IList;
 
 	[Bindable]
-    public class BundleStateModel {
-		public var bundles:ArrayList = new ArrayList();		
+    public class FrameworkVersionModel {
+		public var value:Object;
     }
 }

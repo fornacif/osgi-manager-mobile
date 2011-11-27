@@ -1,0 +1,21 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+
+s|View {
+	backgroundColor: #425058;
+}
+
+s|ActionBar {
+	chromeColor: #425058;
+}
+
+s|List {
+	alternatingItemColors: #ffffff, #f1f1f1;
+}
+
+s|Label.frameworkInfo {
+	backgroundColor: #d5e4f3;
+	paddingTop: 5;
+	paddingLeft: 5;
+}
+
