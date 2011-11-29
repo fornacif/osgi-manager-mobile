@@ -30,12 +30,12 @@ package com.fornacif.osgimanager.bundlestate.pm {
 			listBundles();
 		}
 		
-		private function frameworkVersion():void {
+		public function frameworkVersion():void {
 			var frameworkVersionEvent:FrameworkVersionEvent = new FrameworkVersionEvent(FrameworkVersionEvent.FRAMEWORK_VERSION_REQUEST);
 			dispatcher.dispatchEvent(frameworkVersionEvent);
 		}
 		
-        private function listBundles():void {
+        public function listBundles():void {
             var bundleStateEvent:BundleStateEvent = new BundleStateEvent(BundleStateEvent.LIST_BUNDLES_REQUEST);
             dispatcher.dispatchEvent(bundleStateEvent);
         }

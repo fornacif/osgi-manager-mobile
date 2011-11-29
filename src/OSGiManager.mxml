@@ -4,8 +4,9 @@
 							xmlns:swiz="http://swiz.swizframework.org"
 							xmlns:config="com.fornacif.osgimanager.application.config.*"
 							xmlns:bundleStateConfig="com.fornacif.osgimanager.bundlestate.config.*"
-							firstView="com.fornacif.osgimanager.bundlestate.view.BundleStateView" 
-							applicationDPI="160">
+							firstView="com.fornacif.osgimanager.bundlestate.view.BundleStateView"
+							applicationDPI="160"
+							frameRate="24">
 	<fx:Style source="style/main.css"/>
 	<fx:Declarations>
 		<swiz:Swiz>

@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:IconItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		  xmlns:s="library://ns.adobe.com/flex/spark"
-		  labelFunction="getLabel"
-		  messageFunction="getMessage">
+		  labelField="name"
+		  messageField="version"
+		  iconFunction="getIcon">
 	<fx:Script>
-		<![CDATA[
-			
-			private function getLabel(item:Object):String {
-				return item["Headers"]["Bundle-Name"]["Value"];
-			}
-			
-			private function getMessage(item:Object):String {
-				return item.Version;
+		<![CDATA[			
+			private function getIcon(item:Object):MultiDPIBitmapSource {
+				switch (item.state) {
+					case "INSTALLED":
+						return iconInstalled;
+						break;
+					case "RESOLVED":
+					case "STOPPED":
+						return iconResolved;
+						break;
+					case "ACTIVE":
+						return iconActive;
+						break;
+					default:
+						return iconInstalled;
+						break;
+				}
 			}
 		]]>
 	</fx:Script>
+	<fx:Declarations>
+		<s:MultiDPIBitmapSource id="iconInstalled" 
+								source160dpi="@Embed(source='images/installed24.png')"
+								source240dpi="@Embed(source='images/installed32.png')"
+								source320dpi="@Embed(source='images/installed48.png')"/>
+		<s:MultiDPIBitmapSource id="iconResolved" 
+								source160dpi="@Embed(source='images/stopped24.png')"
+								source240dpi="@Embed(source='images/stopped32.png')"
+								source320dpi="@Embed(source='images/stopped48.png')"/>
+		<s:MultiDPIBitmapSource id="iconActive" 
+								source160dpi="@Embed(source='images/active24.png')"
+								source240dpi="@Embed(source='images/active32.png')"
+								source320dpi="@Embed(source='images/active48.png')"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="INSTALLED"/>
+		<s:State name="RESOLVED"/>
+		<s:State name="ACTIVE"/>
+		<s:State name="STOPPED"/>
+	</s:states>
 </s:IconItemRenderer>

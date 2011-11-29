@@ -1,4 +1,5 @@
 package com.fornacif.osgimanager.application.controller {
+    import com.fornacif.osgimanager.application.model.BundleModel;
     import com.fornacif.osgimanager.application.model.BundleStateModel;
     import com.fornacif.osgimanager.application.service.BundleStateService;
     import com.fornacif.osgimanager.bundlestate.event.BundleStateEvent;
@@ -33,7 +34,7 @@ package com.fornacif.osgimanager.application.controller {
 			var result:Object = JSON.parse(data.result);
 			bundleStateModel.bundles.removeAll();
 			for each (var bundle:Object in result.value) {
-				bundleStateModel.bundles.addItem(bundle);
+				bundleStateModel.bundles.addItem(new BundleModel(bundle));
 			}
 		}
 		

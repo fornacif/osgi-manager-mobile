@@ -31,7 +31,7 @@ package com.fornacif.osgimanager.application.controller {
 		
 		private function frameworkVersionResultHandler(data:Object):void {
 			var result:Object = JSON.parse(data.result);
-			frameworkVersionModel.value = result.value;
+			frameworkVersionModel.fill(result.value);
 		}
 		
 		private function frameworkVersionFaultHandler(info:Object):void {
