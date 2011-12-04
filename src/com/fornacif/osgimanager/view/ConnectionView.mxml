@@ -45,8 +45,7 @@
 		
 		<s:ButtonBar selectedItem="@{connectionPM.connectionModel.protocol}"
 					 requireSelection="true"
-					 width="100%"
-					 height="35">  
+					 width="100%">  
 			<s:ArrayCollection>
 				<fx:String>HTTP</fx:String> 
 				<fx:String>HTTPS</fx:String> 
