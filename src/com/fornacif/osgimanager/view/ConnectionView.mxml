@@ -41,14 +41,13 @@
 		</s:HGroup>
 		
 		<s:Label text="{resourceManager.getString('connection', 'protocol.label')}"
-					 width="100%"/>
-		
+					 width="50%"/>
 		<s:ButtonBar selectedItem="@{connectionPM.connectionModel.protocol}"
 					 requireSelection="true"
-					 width="100%">  
+					 width="50%">  
 			<s:ArrayCollection>
-				<fx:String>HTTP</fx:String> 
-				<fx:String>HTTPS</fx:String> 
+				<fx:String>http</fx:String> 
+				<fx:String>https</fx:String> 
 			</s:ArrayCollection>
 		</s:ButtonBar>
 

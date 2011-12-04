@@ -13,7 +13,7 @@ package com.fornacif.osgimanager.model {
 		}
 		
 		public function loadDefault():void {
-			this.protocol = "HTTP";
+			this.protocol = "http";
 			this.host = "localhost";
 			this.port = "8080";
 			this.context = "jolokia";
