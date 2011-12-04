@@ -1,25 +1,21 @@
 package com.fornacif.osgimanager.service {
     
     import com.fornacif.osgimanager.model.ConnectionModel;
+    import com.fornacif.osgimanager.service.request.ReadRequest;
     
     import mx.rpc.AsyncToken;
     import mx.rpc.http.HTTPService;
 
-    public class ConnectionService extends HTTPService {
+    public class ConnectionService extends JSONService {
 		
 		[Inject]
 		[Bindable]
 		public var connectionModel:ConnectionModel;
 		
-		public function ConnectionService():void {
-			super();
-			this.showBusyCursor = true;
-			this.resultFormat = HTTPService.RESULT_FORMAT_TEXT;
-		}
-		
 		public function frameworkVersion():AsyncToken {
-			this.url = connectionModel.getURL();
-			return this.send();
+			this.url = this.connectionModel.getURL();
+			var request:ReadRequest = new ReadRequest("version");
+			return this.send(request.toJSONString());
 		}
     }
 }
