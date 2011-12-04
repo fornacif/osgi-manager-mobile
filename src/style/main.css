@@ -3,6 +3,7 @@
 
 s|View {
 	backgroundColor: #425058;
+	backgroundAlpha: 0.3;
 }
 
 s|ActionBar {
@@ -14,7 +15,6 @@ s|List {
 }
 
 s|Label.frameworkInfo {
-	backgroundColor: #d5e4f3;
 	paddingTop: 5;
 	paddingLeft: 5;
 }

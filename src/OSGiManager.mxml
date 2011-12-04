@@ -2,27 +2,20 @@
 <s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 							xmlns:s="library://ns.adobe.com/flex/spark" 
 							xmlns:swiz="http://swiz.swizframework.org"
-							xmlns:config="com.fornacif.osgimanager.application.config.*"
-							xmlns:bundleStateConfig="com.fornacif.osgimanager.bundlestate.config.*"
-							firstView="com.fornacif.osgimanager.bundlestate.view.BundleStateView"
-							applicationDPI="160"
-							frameRate="24">
+							xmlns:local="*"
+							firstView="com.fornacif.osgimanager.view.ConnectionView"
+							applicationDPI="160" >
 	<fx:Style source="style/main.css"/>
 	<fx:Declarations>
 		<swiz:Swiz>
 			<swiz:beanProviders>
-				<!-- Application Beans -->
-				<config:ModelBeans/>
-				<config:ControllerBeans/>
-				<config:ServiceBeans/>
-				<!-- Domain Fonctionnality Beans -->
-				<bundleStateConfig:BundleStateConfig/>
+				<local:Beans/>
 			</swiz:beanProviders>
 			<swiz:config>
 				<!-- The eventPackages value tells Swiz the path to your Event classes,
 				and viewPackages is an optional value that speeds up the processing of display classes. -->
-				<swiz:SwizConfig eventPackages="com.fornacif.osgimanager.bundlestate.event"
-								 viewPackages="com.fornacif.osgimanager.bundlestate.view"/>
+				<swiz:SwizConfig eventPackages="com.fornacif.osgimanager.event.*"
+								 viewPackages="com.fornacif.osgimanager.view.*"/>
 			</swiz:config>
 		</swiz:Swiz>
 	</fx:Declarations>	

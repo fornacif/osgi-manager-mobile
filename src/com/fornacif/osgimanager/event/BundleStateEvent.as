@@ -1,4 +1,4 @@
-package com.fornacif.osgimanager.bundlestate.event {
+package com.fornacif.osgimanager.event {
     import flash.events.Event;
 
     public class BundleStateEvent extends Event {

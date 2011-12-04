@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<swiz:BeanProvider xmlns:fx="http://ns.adobe.com/mxml/2009"
+                   xmlns:swiz="http://swiz.swizframework.org"
+				   xmlns:controller="com.fornacif.osgimanager.controller.*"
+				   xmlns:model="com.fornacif.osgimanager.model.*"
+				   xmlns:service="com.fornacif.osgimanager.service.*"
+				   xmlns:presentation="com.fornacif.osgimanager.presentation.*">
+	
+	<swiz:SharedObjectBean name="connectionModel"/>
+	
+	<controller:ConnectionController/>
+    <controller:BundleStateController/>
+	
+	
+	<model:ConnectionModel/>
+	<model:FrameworkVersionModel/>
+	<model:BundleStateModel/>
+	
+	<service:ConnectionService/>
+	<service:BundleStateService/>
+	
+	<presentation:ConnectionPM/>
+	<presentation:BundleStatePM/>
+</swiz:BeanProvider>

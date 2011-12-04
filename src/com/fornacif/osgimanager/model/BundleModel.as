@@ -1,4 +1,4 @@
-package com.fornacif.osgimanager.application.model {
+package com.fornacif.osgimanager.model {
 	[Bindable]
 	public class BundleModel {
 		

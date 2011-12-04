@@ -1,6 +1,6 @@
-package com.fornacif.osgimanager.application.service {
+package com.fornacif.osgimanager.service {
 
-    import com.fornacif.osgimanager.application.model.ConnectionModel;
+    import com.fornacif.osgimanager.model.ConnectionModel;
     
     import mx.rpc.AsyncToken;
     import mx.rpc.http.HTTPService;

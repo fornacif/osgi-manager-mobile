@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		title="{resourceManager.getString('bundlestate', 'framework.host.title', [bundleStatePM.connectionModel.host])}" xmlns:pia="http://piaction.com">
+		title="{resourceManager.getString('bundlestate', 'framework.host.title', [bundleStatePM.connectionModel.host])}" >
 	<fx:Metadata>
 		[ResourceBundle("bundlestate")]
 	</fx:Metadata>
 	<fx:Script>
 		<![CDATA[
-			import com.fornacif.osgimanager.application.service.BundleStateService;
-			import com.pialabs.eskimo.controls.SkinnableAlert;
-			import com.fornacif.osgimanager.bundlestate.pm.BundleStatePM;
+			import com.fornacif.osgimanager.service.BundleStateService;
+			import com.fornacif.osgimanager.presentation.BundleStatePM;
 
 			[Inject]
 			[Bindable]
@@ -39,7 +38,7 @@
 				width="100%" 
 				id="l"
 				height="100%"
-				itemRenderer="com.fornacif.osgimanager.bundlestate.view.BundleItemRenderer"/>
+				itemRenderer="com.fornacif.osgimanager.component.BundleItemRenderer"/>
 		<s:Label width="100%"
 				 styleName="frameworkInfo"
 				 text="{resourceManager.getString('bundlestate', 'framework.version.label', [bundleStatePM.frameworkVersionModel.vendor, 

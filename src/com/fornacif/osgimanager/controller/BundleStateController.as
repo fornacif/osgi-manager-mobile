@@ -1,8 +1,8 @@
-package com.fornacif.osgimanager.application.controller {
-    import com.fornacif.osgimanager.application.model.BundleModel;
-    import com.fornacif.osgimanager.application.model.BundleStateModel;
-    import com.fornacif.osgimanager.application.service.BundleStateService;
-    import com.fornacif.osgimanager.bundlestate.event.BundleStateEvent;
+package com.fornacif.osgimanager.controller {
+    import com.fornacif.osgimanager.model.BundleModel;
+    import com.fornacif.osgimanager.model.BundleStateModel;
+    import com.fornacif.osgimanager.service.BundleStateService;
+    import com.fornacif.osgimanager.event.BundleStateEvent;
     
     import flash.events.IEventDispatcher;
     

@@ -1,17 +1,17 @@
-package com.fornacif.osgimanager.application.service {
+package com.fornacif.osgimanager.service {
     
-    import com.fornacif.osgimanager.application.model.ConnectionModel;
+    import com.fornacif.osgimanager.model.ConnectionModel;
     
     import mx.rpc.AsyncToken;
     import mx.rpc.http.HTTPService;
 
-    public class FrameworkVersionService extends HTTPService {
+    public class ConnectionService extends HTTPService {
 		
 		[Inject]
 		[Bindable]
 		public var connectionModel:ConnectionModel;
 		
-		public function FrameworkVersionService():void {
+		public function ConnectionService():void {
 			super();
 			this.showBusyCursor = true;
 			this.resultFormat = HTTPService.RESULT_FORMAT_TEXT;
