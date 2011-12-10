@@ -11,14 +11,14 @@
 	<controller:ConnectionController/>
     <controller:BundleStateController/>
 	
-	
 	<model:ConnectionModel/>
 	<model:FrameworkVersionModel/>
-	<model:BundleStateModel/>
+	<model:BundleStateModel id="bundleStateModel"/>
 	
 	<service:ConnectionService/>
 	<service:BundleStateService/>
 	
 	<presentation:ConnectionPM/>
 	<presentation:BundleStatePM/>
+	<presentation:BundlePM/>
 </swiz:BeanProvider>

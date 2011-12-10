@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:component="com.fornacif.osgimanager.component.*"
 		title="{resourceManager.getString('bundlestate', 'framework.host.title', [bundleStatePM.connectionModel.host])}" >
 	<fx:Metadata>
 		[ResourceBundle("bundlestate")]
 	</fx:Metadata>
 	<fx:Script>
 		<![CDATA[
-			import com.fornacif.osgimanager.service.BundleStateService;
 			import com.fornacif.osgimanager.presentation.BundleStatePM;
 
 			[Inject]
@@ -17,13 +17,7 @@
 	</fx:Script>
 	
 	<s:actionContent>
-		<s:Button click="bundleStatePM.listBundles()">
-			<s:icon>
-				<s:MultiDPIBitmapSource source160dpi="@Embed(source='images/refresh32.png')"
-										source240dpi="@Embed(source='images/refresh48.png')"
-										source320dpi="@Embed(source='images/refresh64.png')"/>
-			</s:icon>
-		</s:Button>
+		<component:RefreshButton click="bundleStatePM.listBundles()"/>
 	</s:actionContent>
 	
 	<s:Group width="100%"
@@ -34,11 +28,12 @@
 		<s:Label width="100%" 
 				 styleName="frameworkInfo"
 				 text="{resourceManager.getString('bundlestate', 'framework.bundles.label', [bundleStatePM.bundleStateModel.bundles.length])}"/>
-		<s:List dataProvider="{bundleStatePM.bundleStateModel.bundles}" 
-				width="100%" 
-				id="l"
+		<s:List id="bundles"
+			    dataProvider="{bundleStatePM.bundleStateModel.bundles}" 
+				width="100%"
 				height="100%"
-				itemRenderer="com.fornacif.osgimanager.component.BundleItemRenderer"/>
+				itemRenderer="com.fornacif.osgimanager.component.BundleItemRenderer"
+				change="bundleStatePM.bundleSelectedHandler(bundles.selectedItem)"/>
 		<s:Label width="100%"
 				 styleName="frameworkInfo"
 				 text="{resourceManager.getString('bundlestate', 'framework.version.label', [bundleStatePM.frameworkVersionModel.vendor, 

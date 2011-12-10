@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:component="com.fornacif.osgimanager.component.*"
+		title="{bundlePM.selectedBundle.name}" xmlns:skin="com.fornacif.osgimanager.skin.*"
+		creationComplete="bundlePM.initPackageFilterFunctions()">
+	<fx:Metadata>
+		[ResourceBundle("bundle")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			import com.fornacif.osgimanager.presentation.BundlePM;
+			
+			[Inject]
+			[Bindable]
+			public var bundlePM:BundlePM;
+		]]>
+	</fx:Script>
+	<s:actionContent>
+		<component:RefreshButton click="bundlePM.listBundles()"/>
+	</s:actionContent>
+	<s:Scroller width="100%"
+				height="100%">
+		<s:VGroup width="100%"
+				  height="100%"
+				  paddingLeft="5"
+				  paddingTop="10"
+				  paddingRight="5"
+				  paddingBottom="5">
+			
+			<s:HGroup width="100%">
+				<s:SkinnableContainer width="50%"
+									  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+					<s:Label text="{resourceManager.getString('bundle', 'id.label')}"/>
+					<s:Label text="{bundlePM.selectedBundle.id}"/>	
+				</s:SkinnableContainer>
+				<s:SkinnableContainer width="50%"
+									  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+					<s:Label text="{resourceManager.getString('bundle', 'state.label')}"/>
+					<s:Label text="{bundlePM.selectedBundle.state}"/>	
+				</s:SkinnableContainer>
+			</s:HGroup>
+			
+			<s:SkinnableContainer width="100%"
+								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+				<s:Label text="{resourceManager.getString('bundle', 'symbolicName.label')}"/>
+				<s:Label text="{bundlePM.selectedBundle.symbolicName}"/>
+			</s:SkinnableContainer>
+			
+			<s:SkinnableContainer width="100%"
+								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+				<s:Label text="{resourceManager.getString('bundle', 'version.label')}"/>
+				<s:Label text="{bundlePM.selectedBundle.version}"/>
+			</s:SkinnableContainer>
+			
+			<s:SkinnableContainer width="100%"
+								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+				<s:Label text="{resourceManager.getString('bundle', 'importedPackages.label')}"/>
+				<s:TextInput text="@{bundlePM.importedPackagesFilterText}"
+							 change="bundlePM.refreshImportedPackages()"
+							 prompt="{resourceManager.getString('bundle', 'filter.prompt')}"
+							 skinClass="spark.skins.mobile.TextInputSkin"/>
+				<s:List dataProvider="{bundlePM.selectedBundle.importedPackages}"
+					    width="100%"/>
+			</s:SkinnableContainer>
+		</s:VGroup>
+	</s:Scroller>
+</s:View>

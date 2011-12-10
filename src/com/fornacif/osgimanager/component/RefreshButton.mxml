@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Button xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		  xmlns:s="library://ns.adobe.com/flex/spark">
+	<s:icon>
+		<s:MultiDPIBitmapSource source160dpi="@Embed(source='images/refresh32.png')"
+								source240dpi="@Embed(source='images/refresh48.png')"
+								source320dpi="@Embed(source='images/refresh64.png')"/>
+	</s:icon>
+</s:Button>

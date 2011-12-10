@@ -4,6 +4,7 @@ package com.fornacif.osgimanager.model {
 
 	[Bindable]
     public class BundleStateModel {
-		public var bundles:ArrayList = new ArrayList();		
+		public var bundles:ArrayList = new ArrayList();
+		public var selectedBundle:BundleModel;
     }
 }

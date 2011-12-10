@@ -1,8 +1,9 @@
 package com.fornacif.osgimanager.presentation {
+    import com.fornacif.osgimanager.event.BundleStateEvent;
+    import com.fornacif.osgimanager.model.BundleModel;
     import com.fornacif.osgimanager.model.BundleStateModel;
     import com.fornacif.osgimanager.model.ConnectionModel;
     import com.fornacif.osgimanager.model.FrameworkVersionModel;
-    import com.fornacif.osgimanager.event.BundleStateEvent;
     
     import flash.events.IEventDispatcher;
 
@@ -27,6 +28,12 @@ package com.fornacif.osgimanager.presentation {
             var bundleStateEvent:BundleStateEvent = new BundleStateEvent(BundleStateEvent.LIST_BUNDLES_REQUEST);
             dispatcher.dispatchEvent(bundleStateEvent);
         }
+		
+		public function bundleSelectedHandler(bundle:BundleModel):void {
+			bundleStateModel.selectedBundle = bundle;
+			var bundleStateEvent:BundleStateEvent = new BundleStateEvent(BundleStateEvent.BUNDLE_SELECTED);
+			dispatcher.dispatchEvent(bundleStateEvent);
+		}
 
     }
 }

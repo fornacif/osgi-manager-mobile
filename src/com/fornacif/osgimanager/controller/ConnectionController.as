@@ -1,19 +1,11 @@
 package com.fornacif.osgimanager.controller {
-    import com.fornacif.osgimanager.event.BundleStateEvent;
     import com.fornacif.osgimanager.event.ConnectionEvent;
-    import com.fornacif.osgimanager.model.BundleModel;
-    import com.fornacif.osgimanager.model.BundleStateModel;
     import com.fornacif.osgimanager.model.ConnectionModel;
     import com.fornacif.osgimanager.model.FrameworkVersionModel;
-    import com.fornacif.osgimanager.service.BundleStateService;
     import com.fornacif.osgimanager.service.ConnectionService;
     import com.fornacif.osgimanager.view.BundleStateView;
-    import com.pialabs.eskimo.controls.SkinnableAlert;
     
     import flash.events.IEventDispatcher;
-    
-    import mx.collections.ArrayList;
-    import mx.collections.IList;
     
     import org.swizframework.storage.ISharedObjectBean;
     import org.swizframework.utils.services.ServiceHelper;
@@ -40,11 +32,11 @@ package com.fornacif.osgimanager.controller {
 		[Inject]
 		public var sharedObjectBean:ISharedObjectBean;
 		
-		[ViewNavigator]
-		public var viewNavigator:ViewNavigator;
-		
 		[Dispatcher]
 		public var dispatcher:IEventDispatcher;
+		
+		[ViewNavigator]
+		public var viewNavigator:ViewNavigator;
 
         [EventHandler(event = "ConnectionEvent.CONNECTION_REQUEST")]
         public function connect():void {
