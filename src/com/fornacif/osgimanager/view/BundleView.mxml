@@ -18,7 +18,9 @@
 	</fx:Script>
 	<s:actionContent>
 		<component:RefreshButton click="bundlePM.listBundles()"/>
-	</s:actionContent>
+	</s:actionContent>	
+
+	
 	<s:Scroller width="100%"
 				height="100%">
 		<s:VGroup width="100%"
@@ -27,42 +29,56 @@
 				  paddingTop="10"
 				  paddingRight="5"
 				  paddingBottom="5">
-			
-			<s:HGroup width="100%">
-				<s:SkinnableContainer width="50%"
-									  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+
+			<s:SkinnableContainer skinClass="com.fornacif.osgimanager.skin.BundleItemSkin"
+								  width="100%">		
+				<s:HGroup width="100%">
 					<s:Label text="{resourceManager.getString('bundle', 'id.label')}"/>
-					<s:Label text="{bundlePM.selectedBundle.id}"/>	
-				</s:SkinnableContainer>
-				<s:SkinnableContainer width="50%"
-									  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+					<s:Label text="{bundlePM.selectedBundle.id}" fontWeight="bold"/>
+					<s:Spacer width="100%"/>
 					<s:Label text="{resourceManager.getString('bundle', 'state.label')}"/>
-					<s:Label text="{bundlePM.selectedBundle.state}"/>	
-				</s:SkinnableContainer>
-			</s:HGroup>
-			
-			<s:SkinnableContainer width="100%"
-								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
-				<s:Label text="{resourceManager.getString('bundle', 'symbolicName.label')}"/>
-				<s:Label text="{bundlePM.selectedBundle.symbolicName}"/>
+					<s:Label text="{bundlePM.selectedBundle.state}" fontWeight="bold"/>	
+				</s:HGroup>
+				<s:HGroup width="100%">
+					<s:Label text="{resourceManager.getString('bundle', 'version.label')}"/>
+					<s:Label text="{bundlePM.selectedBundle.version}" fontWeight="bold"/>
+				</s:HGroup>
 			</s:SkinnableContainer>
 			
-			<s:SkinnableContainer width="100%"
-								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
-				<s:Label text="{resourceManager.getString('bundle', 'version.label')}"/>
-				<s:Label text="{bundlePM.selectedBundle.version}"/>
+			<s:SkinnableContainer skinClass="com.fornacif.osgimanager.skin.BundleItemSkin"
+								  width="100%">				
+				<s:VGroup width="100%">
+					<s:Label text="{resourceManager.getString('bundle', 'symbolicName.label')}"/>
+					<s:Label text="{bundlePM.selectedBundle.symbolicName}"
+							 maxDisplayedLines="1"
+							 fontWeight="bold"
+							 width="100%"/>
+				</s:VGroup>			
 			</s:SkinnableContainer>
 			
-			<s:SkinnableContainer width="100%"
-								  skinClass="com.fornacif.osgimanager.skin.BundleItemSkin">
+			<s:SkinnableContainer skinClass="com.fornacif.osgimanager.skin.BundleItemSkin"
+								  width="100%">				
+				<s:VGroup width="100%">
+					<s:Label text="{resourceManager.getString('bundle', 'activator.label')}"/>
+					<s:Label text="{bundlePM.selectedBundle.activator}"
+							 maxDisplayedLines="1"
+							 fontWeight="bold"
+							 width="100%"/>
+				</s:VGroup>			
+			</s:SkinnableContainer>
+			
+<!--			<s:SkinnableContainer skinClass="com.fornacif.osgimanager.skin.BundleItemSkin"
+								  width="100%">
 				<s:Label text="{resourceManager.getString('bundle', 'importedPackages.label')}"/>
 				<s:TextInput text="@{bundlePM.importedPackagesFilterText}"
 							 change="bundlePM.refreshImportedPackages()"
 							 prompt="{resourceManager.getString('bundle', 'filter.prompt')}"
-							 skinClass="spark.skins.mobile.TextInputSkin"/>
+							 skinClass="spark.skins.mobile.TextInputSkin"
+							 width="100%"/>
 				<s:List dataProvider="{bundlePM.selectedBundle.importedPackages}"
 					    width="100%"/>
-			</s:SkinnableContainer>
+			</s:SkinnableContainer>-->
 		</s:VGroup>
 	</s:Scroller>
+
 </s:View>
